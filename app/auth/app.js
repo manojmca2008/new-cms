@@ -5,32 +5,32 @@ app.config(['$routeProvider',
         $routeProvider.
         when('/login', {
             title: 'Login',
-            templateUrl: 'partials/login.html',
+            templateUrl: 'app/auth/partials/login.html',
             controller: 'authCtrl'
         })
             .when('/logout', {
                 title: 'Logout',
-                templateUrl: 'partials/login.html',
+                templateUrl: 'app/auth/partials/login.html',
                 controller: 'logoutCtrl'
             })
             .when('/signup', {
                 title: 'Signup',
-                templateUrl: 'partials/signup.html',
+                templateUrl: 'app/auth/partials/signup.html',
                 controller: 'authCtrl'
             })
             .when('/forget', {
                 title: 'Dashboard',
-                templateUrl: 'partials/forget-password.html',
+                templateUrl: 'app/auth/partials/forget-password.html',
                 controller: 'authCtrl'
             })
             .when('/dashboard', {
                 title: 'Dashboard',
-                templateUrl: 'partials/dashboard.html',
+                templateUrl: 'app/auth/partials/dashboard.html',
                 controller: 'authCtrl'
             })
             .when('/', {
                 title: 'Login',
-                templateUrl: 'partials/login.html',
+                templateUrl: 'app/auth/partials/login.html',
                 controller: 'authCtrl',
                 role: '0'
             })
@@ -39,7 +39,10 @@ app.config(['$routeProvider',
             });
   }])
     .run(function ($rootScope, $location, Data) {
+        //consle.log($location);
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
+            //$rootScope.title = current.$$route.title;
+            //console.log($rootScope);
             $rootScope.authenticated = false;
             Data.get('session').then(function (results) {
                 if (results.uid) {
