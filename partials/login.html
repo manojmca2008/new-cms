@@ -1,0 +1,18 @@
+<div class="form-box" id="login-box">
+    <div class="header">Please fill out the following form with your login credentials:</div>
+    <form name="loginForm" role="form">
+        <div class="body bg-gray">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" name="email" ng-model="login.email" required focus/>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" ng-model="login.password" required/>
+            </div>
+            <div class="form-group">
+                <p><a href="#/signup" class="text-center">Register</a> | <a href="#/forget">Lost password?</a></p>
+                <input type="checkbox" name="remember_me"/> Remember me
+            </div>
+            <button type="submit" class="btn bg-olive btn-block" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Login</button>
+        </div>
+    </form>            
+</div>
